@@ -1,0 +1,12 @@
+
+git:
+  paging:
+    colorArg: always
+    useConfig: true
+  branchLogCmd: git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  allBranchesLogCmd: git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  diffDelta:
+    plus-style: "syntax #1a472a"     # darker green
+    minus-style: "syntax #5c1818"     # darker red
+    plus-emph-style: "syntax #2d6d3f" # emphasized darker green
+    minus-emph-style: "syntax #8b2424" # emphasized darker red

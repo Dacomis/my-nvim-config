@@ -239,3 +239,11 @@ vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {
   noremap = true,
   silent = true,
 })
+
+vim.keymap.set('n', '<leader>wz', function()
+  local cwd = vim.fn.getcwd()
+  vim.fn.system('wezterm cli spawn --cwd ' .. vim.fn.shellescape(cwd))
+end, {
+  noremap = true,
+  desc = 'Open WezTerm in current directory',
+})
