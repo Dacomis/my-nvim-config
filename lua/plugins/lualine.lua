@@ -22,5 +22,18 @@ require('lualine').setup {
         'buffers',
       },
     },
+    lualine_c = {
+      {
+        'filename',
+        path = 1, -- Relative path
+        -- path = 2 would show absolute path
+        -- path = 0 is just filename (your current setting)
+      },
+      {
+        function()
+          return vim.fn.ObsessionStatus()
+        end,
+      },
+    },
   },
 }

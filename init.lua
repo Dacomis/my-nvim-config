@@ -23,7 +23,7 @@ require 'plugins.trouble'
 require 'plugins.neogit'
 require 'plugins.harpoon'
 require 'plugins.mini'
-require 'plugins.minisessions'
 require 'plugins.misc'
+require 'plugins.snacks'
 
 -- vim: ts=8 sts=2 sw=2 et

@@ -1,5 +1,3 @@
--- Twilight
-
 vim.api.nvim_set_keymap('n', 'tw', ':Twilight<enter>', { noremap = false })
 -- Buffers
 
@@ -40,6 +38,8 @@ vim.keymap.set('n', '<leader>ie', '<cmd>GoIfErr<cr>', {
   silent = true,
   noremap = true,
 })
+
+vim.keymap.set('n', '<leader>o', 'o<Esc>', { noremap = true })
 
 -- Yank and Paste to the OS clipboard
 vim.keymap.set('n', '<leader>y', '"+y', {
@@ -247,3 +247,29 @@ end, {
   noremap = true,
   desc = 'Open WezTerm in current directory',
 })
+
+-- Auto-start session tracking in a project directory
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    -- Only start session in directories, not single files
+    if vim.fn.argc() == 0 and not vim.fn.exists 'g:started_by_firenvim' then
+      vim.cmd 'Obsession'
+    end
+  end,
+})
+
+-- Add a shortcut to start/stop session recording
+vim.keymap.set('n', '<leader>ss', ':Obsession<CR>', { noremap = true, silent = true })
+
+-- Source Session.vim if it exists
+vim.keymap.set('n', '<leader>sl', function()
+  local session_file = vim.fn.getcwd() .. '/Session.vim'
+  if vim.fn.filereadable(session_file) == 1 then
+    -- Close all buffers first
+    vim.cmd 'bufdo bd!'
+    vim.cmd 'source Session.vim'
+    print 'Session loaded'
+  else
+    print 'No Session.vim found'
+  end
+end, { noremap = true, silent = true })

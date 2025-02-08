@@ -587,6 +587,13 @@ require('lazy').setup({ -- NOTE: Plugins can be added with a link (or for a gith
         }
       end,
       formatters_by_ft = {
+        html = { 'prettier' },
+        javascript = { 'prettier' },
+        typescript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        css = { 'prettier' },
+        json = { 'prettier' },
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
@@ -928,6 +935,16 @@ require('lazy').setup({ -- NOTE: Plugins can be added with a link (or for a gith
       },
       lazygit = {
         enabled = true,
+        configure = true,
+        config = {
+          gui = {
+            nerdFontsVersion = '3',
+            theme = {
+              unstagedChangesColor = { fg = '#40A02B' },
+              selectedLineBgColor = { bg = '#CCD0DA' },
+            },
+          },
+        },
       },
       notifier = {
         enabled = true,
